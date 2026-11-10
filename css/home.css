@@ -1,0 +1,55 @@
+/* Matutar Games · home (camada 1: o hub como folha de almanaque).
+ * Mobile-first. Herda papel, tinta, traço e grão da base; cada jogo entra com a sua cor-dupla e a sua voz. */
+@font-face{font-family:'Anybody';font-weight:800;font-display:swap;src:url(../assets/fontes/anybody-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Bungee';font-weight:400;font-display:swap;src:url(../assets/fontes/bungee-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Courier Prime';font-weight:700;font-display:swap;src:url(../assets/fontes/courier-prime-latin-700-normal.woff2) format('woff2')}
+:root{
+  --lilas:#B7A1E6;
+  --gutter:max(16px,env(safe-area-inset-left,0px)); --gutter-d:max(16px,env(safe-area-inset-right,0px));
+}
+body{display:flex;flex-direction:column;align-items:center}
+.pular-conteudo{position:absolute;left:12px;top:-80px;z-index:10}
+.pular-conteudo:focus{top:12px}
+.cabeca,main,.rodape{width:100%;max-width:560px;padding-left:var(--gutter);padding-right:var(--gutter-d)}
+
+/* ---------------------------------------------------------------- cabeçalho de almanaque */
+.cabeca{padding-block:max(12px,env(safe-area-inset-top,0px)) 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.faixa-almanaque{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-block:2.5px solid var(--tinta);font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+.logo{display:grid;margin:6px 0 0;font-family:var(--fonte-cartaz);font-weight:400;line-height:.88;letter-spacing:-.5px}
+.logo-1{font-size:clamp(46px,15.5vw,96px);color:var(--sol);-webkit-text-stroke:3px var(--tinta);paint-order:stroke fill;text-shadow:5px 5px 0 var(--tinta)}
+.logo-2{justify-self:start;margin-top:8px;font-size:clamp(26px,8.5vw,44px);background:var(--tinta);color:var(--papel-claro);padding:4px 12px 6px;border-radius:8px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--coral)}
+.slogan{font-family:var(--fonte-mao);font-size:clamp(26px,8vw,34px);line-height:1.1;color:var(--coral-texto);margin-top:2px}
+.intro{font-size:16px;font-weight:700;max-width:34ch}
+
+/* ---------------------------------------------------------------- jogos */
+main{display:grid;gap:14px;padding-bottom:24px}
+.jogos{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.jogo{position:relative;display:grid;gap:10px;padding:16px 14px 14px;background:var(--papel-claro) var(--grao);border:var(--traco);border-radius:16px;box-shadow:6px 6px 0 var(--cor-b)}
+.numero{position:absolute;top:-13px;right:14px;font-family:var(--fonte-cartaz);font-size:13px;background:var(--cor-a);color:var(--cor-a-texto);border:2.5px solid var(--tinta);border-radius:999px;padding:1px 10px}
+.jogo-topo{display:flex;align-items:center;gap:12px}
+.objeto{flex:none;width:56px;height:56px}
+.nome{margin:0;font-size:clamp(24px,7.4vw,30px);line-height:1}
+.descricao{font-size:16px;line-height:1.4}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12.5px;font-weight:700;border:2px solid var(--tinta);border-radius:999px;padding:1px 9px;background:var(--papel)}
+.jogar{width:100%;background:var(--cor-a);color:var(--cor-a-texto)}
+.em-confirmacao{font-size:14px;font-weight:700;text-align:center;padding:12px;border:2.5px dashed var(--tinta);border-radius:12px;color:var(--tinta-suave)}
+
+/* cada jogo: cor-dupla e voz próprias (direção de arte aprovada) */
+.jogo-duelo{--cor-a:#2C62C9;--cor-a-texto:#FBF6EA;--cor-b:var(--coral)}
+.jogo-duelo .nome{font-family:'Anybody','Arial Black',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.3px}
+.jogo-qop{--cor-a:var(--sol);--cor-a-texto:var(--tinta);--cor-b:var(--musgo)}
+.jogo-qop .nome{font-family:var(--fonte-cartaz)}
+.jogo-confia{--cor-a:var(--lilas);--cor-a-texto:var(--tinta);--cor-b:var(--coral)}
+.jogo-confia .nome{font-family:'Bungee','Arial Black',sans-serif;font-weight:400}
+
+.no-forno{font-family:var(--fonte-mao);font-size:24px;text-align:center;color:var(--tinta-suave)}
+
+/* ---------------------------------------------------------------- rodapé */
+.rodape{display:grid;gap:8px;justify-items:center;padding-block:16px max(24px,env(safe-area-inset-bottom,0px));border-top:2px dashed var(--tinta);font-size:13px;color:var(--tinta-suave);text-align:center}
+.rodape .btn{width:100%;max-width:340px}
+.rodape-marca{font-family:var(--fonte-cartaz);color:var(--tinta)}
+.status{font-weight:700;color:var(--tinta)}
+.status:empty{display:none}
+
+@media (min-width:640px){.cabeca{padding-top:28px}}

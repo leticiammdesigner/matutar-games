@@ -1,0 +1,51 @@
+/* Matutar Games · base compartilhada (camadas 1 e 2): tokens, fontes, tipografia, botões, foco.
+ * Cada jogo carrega este arquivo e depois o próprio (cor-dupla, voz e objeto-símbolo).
+ * Grão e sombra deslocada só em superfícies e decoração; nunca em números, campos ou texto pequeno. */
+@font-face{font-family:'Atkinson Hyperlegible';font-weight:400;font-display:swap;src:url(../assets/fontes/atkinson-hyperlegible-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Atkinson Hyperlegible';font-weight:700;font-display:swap;src:url(../assets/fontes/atkinson-hyperlegible-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Bowlby One';font-weight:400;font-display:swap;src:url(../assets/fontes/bowlby-one-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Gochi Hand';font-weight:400;font-display:swap;src:url(../assets/fontes/gochi-hand-latin-400-normal.woff2) format('woff2')}
+
+:root{
+  --papel:#F3EAD7; --papel-claro:#FBF6EA; --papel-escuro:#E6D9BE; --tinta:#1C1A17; --tinta-suave:#4F4A42;
+  --sol:#F6C419; --sol-claro:#FBE3A0; --musgo:#4F7B3C; --musgo-texto:#355E28; --musgo-claro:#DCEBD3;
+  --coral:#E2512F; --coral-texto:#A33018; --coral-claro:#FBE0D8;
+  --ceu:#8DB6EA; --ceu-claro:#DCE9F8; --chiclete:#F37DB5; --primario:#2C62C9;
+  --fonte-cartaz:'Bowlby One','Arial Black',Impact,sans-serif;
+  --fonte-texto:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --fonte-mao:'Gochi Hand','Comic Sans MS',cursive;
+  --traco:3px solid var(--tinta);
+  --raio:14px;
+  --grao:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .09 0 0 0 0 .08 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+*,*:before,*:after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--fonte-texto);font-size:16px;line-height:1.45;background:var(--papel);color:var(--tinta);min-height:100vh;min-height:100dvh}
+h1,h2,.cartaz{font-family:var(--fonte-cartaz);font-weight:400;letter-spacing:0;line-height:1.1;text-wrap:balance}
+h3{font-weight:700;margin:0}
+p{margin:0}
+a{color:var(--primario)}
+button{font:inherit;color:inherit}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* foco: sempre visível, um contorno só */
+:focus{outline:none}
+:focus-visible{outline:3px solid var(--primario);outline-offset:3px}
+
+/* marca do hub */
+.marca-hub{display:inline-flex;align-items:center;gap:6px;font-family:var(--fonte-cartaz);font-size:16px;line-height:1;color:var(--tinta);text-decoration:none;letter-spacing:.3px}
+.marca-hub span{font-size:10px;background:var(--tinta);color:var(--papel-claro);padding:4px 6px 3px;border-radius:4px;transform:rotate(-4deg)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 18px;border:var(--traco);border-radius:var(--raio);background:var(--papel-claro);color:var(--tinta);font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .08s,box-shadow .08s,background .12s}
+.btn-principal{background:var(--sol);box-shadow:4px 4px 0 var(--tinta);font-family:var(--fonte-cartaz);font-weight:400;font-size:18px;letter-spacing:.2px}
+.btn-principal:hover{background:#FFD43F}
+.btn-principal:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--tinta)}
+.btn:disabled,.btn[aria-disabled=true]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-link{background:none;border:0;padding:10px 4px;min-height:44px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;color:var(--tinta)}
+
+/* painel de almanaque */
+.painel{background:var(--papel-claro);border:var(--traco);border-radius:var(--raio)}
+
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
