@@ -11,7 +11,7 @@ Cada jogo tem repositório e publicação próprios. A home só aponta para eles
 
 | Nº | Jogo | Repositório | Endereço | Situação |
 |---|---|---|---|---|
-| 1 | Duelo de Palavras | a confirmar | a confirmar | card com "Em breve" no lugar do botão |
+| 1 | Duelo de Palavras | `leticiammdesigner/duelo-de-palavras` | https://duelo-matutar.netlify.app | no ar (Duelo do Dia em modo de teste) |
 | 2 | Qual o Preço? | `leticiammdesigner/qual-o-preco` | https://qualopreco.netlify.app | no ar com a versão da `main` |
 | 3 | Confia? | `leticiammdesigner/confia` | https://confia-matutar.netlify.app | v1.0 da Partida Rápida |
 
