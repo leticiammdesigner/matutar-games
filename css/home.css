@@ -1,55 +1,75 @@
-/* Matutar Games · home (camada 1: o hub como folha de almanaque).
- * Mobile-first. Herda papel, tinta, traço e grão da base; cada jogo entra com a sua cor-dupla e a sua voz. */
-@font-face{font-family:'Anybody';font-weight:800;font-display:swap;src:url(../assets/fontes/anybody-latin-800-normal.woff2) format('woff2')}
-@font-face{font-family:'Bungee';font-weight:400;font-display:swap;src:url(../assets/fontes/bungee-latin-400-normal.woff2) format('woff2')}
-@font-face{font-family:'Courier Prime';font-weight:700;font-display:swap;src:url(../assets/fontes/courier-prime-latin-700-normal.woff2) format('woff2')}
+/* Matutar Games · home. Neobrutalismo limpo: fundo creme, cards claros, contorno 2px, sombra dura 4px. */
+
 :root{
-  --lilas:#B7A1E6;
-  --gutter:max(16px,env(safe-area-inset-left,0px)); --gutter-d:max(16px,env(safe-area-inset-right,0px));
+  /* tokens da Matutar UI (matutar-ui/matutar-ui.css), com os nomes curtos usados na home */
+  --creme:var(--mt-fundo); --clarinho:var(--mt-superficie); --grafite:var(--mt-tinta); --grafite-2:var(--mt-tinta-2);
+  --azul:var(--mt-duelo); --manteiga:var(--mt-preco); --lavanda:var(--mt-confia); --menta:var(--mt-novidade);
+  --disp:var(--mt-titulo); --texto:var(--mt-texto); --mono:var(--mt-mono);
+  --traco:var(--mt-traco); --sombra:var(--mt-sombra); --raio:var(--mt-raio);
+  color-scheme:light;
 }
-body{display:flex;flex-direction:column;align-items:center}
-.pular-conteudo{position:absolute;left:12px;top:-80px;z-index:10}
-.pular-conteudo:focus{top:12px}
-.cabeca,main,.rodape{width:100%;max-width:560px;padding-left:var(--gutter);padding-right:var(--gutter-d)}
+*,*:before,*:after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--grafite);font-family:var(--texto);font-size:17px;line-height:1.45;display:flex;flex-direction:column;align-items:center;min-height:100dvh}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit}
+.mono{font-family:var(--mono);font-weight:500}
+:focus-visible{outline:3px solid var(--mt-foco);outline-offset:3px}
+.pular{position:absolute;left:12px;top:-80px;z-index:10;background:var(--clarinho);border:var(--traco);border-radius:999px;padding:10px 16px;font-weight:600}
+.pular:focus{top:12px}
 
-/* ---------------------------------------------------------------- cabeçalho de almanaque */
-.cabeca{padding-block:max(12px,env(safe-area-inset-top,0px)) 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
-.faixa-almanaque{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-block:2.5px solid var(--tinta);font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
-.logo{display:grid;margin:6px 0 0;font-family:var(--fonte-cartaz);font-weight:400;line-height:.88;letter-spacing:-.5px}
-.logo-1{font-size:clamp(46px,15.5vw,96px);color:var(--sol);-webkit-text-stroke:3px var(--tinta);paint-order:stroke fill;text-shadow:5px 5px 0 var(--tinta)}
-.logo-2{justify-self:start;margin-top:8px;font-size:clamp(26px,8.5vw,44px);background:var(--tinta);color:var(--papel-claro);padding:4px 12px 6px;border-radius:8px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--coral)}
-.slogan{font-family:var(--fonte-mao);font-size:clamp(26px,8vw,34px);line-height:1.1;color:var(--coral-texto);margin-top:2px}
-.intro{font-size:16px;font-weight:700;max-width:34ch}
+.topo,main,.rodape{width:100%;max-width:520px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 
-/* ---------------------------------------------------------------- jogos */
-main{display:grid;gap:14px;padding-bottom:24px}
-.jogos{list-style:none;margin:0;padding:0;display:grid;gap:18px}
-.jogo{position:relative;display:grid;gap:10px;padding:16px 14px 14px;background:var(--papel-claro) var(--grao);border:var(--traco);border-radius:16px;box-shadow:6px 6px 0 var(--cor-b)}
-.numero{position:absolute;top:-13px;right:14px;font-family:var(--fonte-cartaz);font-size:13px;background:var(--cor-a);color:var(--cor-a-texto);border:2.5px solid var(--tinta);border-radius:999px;padding:1px 10px}
-.jogo-topo{display:flex;align-items:center;gap:12px}
-.objeto{flex:none;width:56px;height:56px}
-.nome{margin:0;font-size:clamp(24px,7.4vw,30px);line-height:1}
-.descricao{font-size:16px;line-height:1.4}
+/* ---------- marca */
+.topo{padding-block:max(28px,env(safe-area-inset-top,0px)) 28px;display:flex;flex-direction:column;gap:14px}
+.marca{display:flex;flex-direction:column;gap:10px;font-weight:400}
+.pecas{display:flex}
+.pecas .p{width:30px;height:30px}
+.pecas .p+.p{margin-left:-8px}
+.wordmark{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.matutar{font-family:var(--disp);font-weight:800;font-size:clamp(48px,16vw,64px);line-height:.82;letter-spacing:-.04em}
+.games{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:1px;line-height:1;padding:6px 9px;background:var(--grafite);color:var(--clarinho);border-radius:8px;margin-bottom:2px}
+.slogan{font-family:var(--disp);font-weight:700;font-size:24px;line-height:1.15;letter-spacing:-.01em;margin-top:2px}
+.intro{color:var(--grafite-2);max-width:34ch}
+
+/* peças: a assinatura dos jogos */
+.p{display:grid;place-items:center;border:var(--traco);font-style:normal}
+.p-duelo{background:var(--azul);border-radius:9px}
+.p-qop{background:var(--manteiga);border-radius:9px 9px 9px 20px}
+.p-confia{background:var(--lavanda);border-radius:50%}
+
+/* ---------- jogos */
+main{flex:1;display:flex;flex-direction:column;gap:16px;padding-bottom:28px}
+.secao-titulo{display:flex;justify-content:space-between;align-items:baseline;border-bottom:var(--traco);padding-bottom:6px}
+.secao-titulo h2{font-family:var(--disp);font-weight:800;font-size:22px}
+.secao-titulo span{font-size:14px}
+.jogos{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--clarinho);border:var(--traco);border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden}
+.faixa{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:var(--traco)}
+.c-duelo .faixa{background:var(--azul)} .c-qop .faixa{background:var(--manteiga)} .c-confia .faixa{background:var(--lavanda)}
+.peca{flex:none;width:44px;height:44px;background:var(--clarinho);font-family:var(--mono);font-weight:700;font-size:15px}
+.faixa h3{flex:1;min-width:0;font-family:var(--disp);font-weight:800;font-size:24px;line-height:1.05;letter-spacing:-.02em}
+.num{font-family:var(--mono);font-weight:700;font-size:14px}
+.corpo{padding:14px;display:flex;flex-direction:column;gap:14px}
+/* etiquetas à esquerda, botão à direita; se faltar espaço, o botão desce inteiro e as etiquetas não encolhem */
+.pe{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font-size:12.5px;font-weight:700;border:2px solid var(--tinta);border-radius:999px;padding:1px 9px;background:var(--papel)}
-.jogar{width:100%;background:var(--cor-a);color:var(--cor-a-texto)}
-.em-confirmacao{font-size:14px;font-weight:700;text-align:center;padding:12px;border:2.5px dashed var(--tinta);border-radius:12px;color:var(--tinta-suave)}
+.tags li{font-family:var(--mono);font-weight:500;font-size:13.5px;line-height:1;padding:6px 9px;border:1.5px solid var(--grafite);border-radius:999px;white-space:nowrap}
+.jogar{flex:none;margin-left:auto;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;background:var(--grafite);color:var(--clarinho);font-weight:600;font-size:16px;text-decoration:none;transition:transform .08s}
+.jogar:active{transform:translate(1px,1px)}
+.jogar-off{background:transparent;color:var(--grafite-2);border:1.5px dashed var(--grafite-2)}
 
-/* cada jogo: cor-dupla e voz próprias (direção de arte aprovada) */
-.jogo-duelo{--cor-a:#2C62C9;--cor-a-texto:#FBF6EA;--cor-b:var(--coral)}
-.jogo-duelo .nome{font-family:'Anybody','Arial Black',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.3px}
-.jogo-qop{--cor-a:var(--sol);--cor-a-texto:var(--tinta);--cor-b:var(--musgo)}
-.jogo-qop .nome{font-family:var(--fonte-cartaz)}
-.jogo-confia{--cor-a:var(--lilas);--cor-a-texto:var(--tinta);--cor-b:var(--coral)}
-.jogo-confia .nome{font-family:'Bungee','Arial Black',sans-serif;font-weight:400}
+.forno{display:flex;gap:16px;align-items:center;background:var(--menta);border:2px dashed var(--grafite);border-radius:var(--raio);padding:14px 16px;margin-top:6px}
+.p-forno{flex:none;width:36px;height:36px;margin:4px;border-radius:9px;transform:rotate(45deg);background:var(--clarinho)}
+.forno h2{font-size:14px;font-weight:700}
 
-.no-forno{font-family:var(--fonte-mao);font-size:24px;text-align:center;color:var(--tinta-suave)}
-
-/* ---------------------------------------------------------------- rodapé */
-.rodape{display:grid;gap:8px;justify-items:center;padding-block:16px max(24px,env(safe-area-inset-bottom,0px));border-top:2px dashed var(--tinta);font-size:13px;color:var(--tinta-suave);text-align:center}
-.rodape .btn{width:100%;max-width:340px}
-.rodape-marca{font-family:var(--fonte-cartaz);color:var(--tinta)}
-.status{font-weight:700;color:var(--tinta)}
+.convite{display:flex;flex-direction:column;gap:10px;text-align:center;margin-top:8px}
+.convite>p:first-child{font-family:var(--disp);font-weight:700;font-size:20px}
+.btn-claro{min-height:50px;border-radius:999px;border:var(--traco);background:var(--clarinho);color:var(--grafite);font:600 17px var(--texto);cursor:pointer}
+.status{font-size:15px;font-weight:600}
 .status:empty{display:none}
 
-@media (min-width:640px){.cabeca{padding-top:28px}}
+.rodape{padding-block:6px max(28px,env(safe-area-inset-bottom,0px));font-size:14px;color:var(--grafite-2);text-align:center}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -1,14 +1,8 @@
-// Matutar Games · home. Só duas coisas: a data da folha e o botão de chamar alguém para jogar.
-
-const folha = document.getElementById('folhaDoDia');
-try {
-  folha.textContent = 'Folha de ' + new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', timeZone: 'America/Sao_Paulo' }).format(new Date()).replace('.', '');
-} catch { /* fica "Folha de hoje" */ }
-
+// Matutar Games · home: só o botão de convidar.
 const botao = document.getElementById('compartilhar');
-const status = document.getElementById('statusCompartilhar');
+const status = document.getElementById('status');
 const endereco = /^https?:$/.test(location.protocol) ? location.origin + '/' : '';
-const texto = 'MATUTAR GAMES · Ideias que dão jogo.\nTrês jogos rápidos para jogar no celular.';
+const texto = 'Matutar Games · Ideias que dão jogo.\nTrês jogos para pensar, arriscar e se surpreender.';
 
 botao.addEventListener('click', async () => {
   status.textContent = '';
