@@ -3,76 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F6C419">
+<meta name="theme-color" content="#FBF6EC">
 <title>Matutar Games • Ideias que dão jogo.</title>
-<meta name="description" content="Almanaque de jogos rápidos para jogar no celular: Duelo de Palavras, Qual o Preço? e Confia?.">
+<meta name="description" content="Três jogos para pensar, arriscar e se surpreender: Duelo de Palavras, Qual o Preço? e Confia?.">
 <meta property="og:title" content="Matutar Games">
-<meta property="og:description" content="Ideias que dão jogo. Três jogos rápidos para jogar no celular.">
-<meta property="og:site_name" content="Matutar Games">
+<meta property="og:description" content="Ideias que dão jogo. Três jogos para pensar, arriscar e se surpreender.">
 <meta property="og:type" content="website">
-<link rel="preload" href="assets/fontes/bowlby-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fontes/atkinson-hyperlegible-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/matutar-base.css?v=1">
-<link rel="stylesheet" href="css/home.css?v=1">
+<link rel="preload" href="assets/fontes/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fontes/work-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/home.css?v=2">
 </head>
 <body>
-<a class="pular-conteudo btn" href="#jogos">Pular para os jogos</a>
+<a class="pular" href="#jogos">Pular para os jogos</a>
 
-<header class="cabeca">
-  <div class="faixa-almanaque"><span>Almanaque de jogos</span><span id="folhaDoDia">Folha de hoje</span></div>
-  <h1 class="logo"><span class="logo-1">MATUTAR</span><span class="logo-2">GAMES</span></h1>
+<header class="topo">
+  <h1 class="marca" aria-label="Matutar Games">
+    <span class="pecas" aria-hidden="true"><i class="p p-duelo"></i><i class="p p-qop"></i><i class="p p-confia"></i></span>
+    <span class="wordmark" aria-hidden="true"><span class="matutar">matutar</span><span class="games">GAMES</span></span>
+  </h1>
   <p class="slogan">Ideias que dão jogo.</p>
-  <p class="intro">Três jogos rápidos para jogar no celular. Sem cadastro e sem custo.</p>
+  <p class="intro">Três jogos para pensar, arriscar e se surpreender. Sem cadastro, sem complicação.</p>
 </header>
 
-<main id="jogos" aria-labelledby="tituloJogos">
-  <h2 class="sr-only" id="tituloJogos">Jogos</h2>
-  <ol class="jogos">
+<main id="jogos">
+  <div class="secao-titulo">
+    <h2>Jogue agora</h2>
+    <span class="mono">3 jogos</span>
+  </div>
 
-    <li class="jogo jogo-duelo">
-      <span class="numero" aria-hidden="true">Nº 1</span>
-      <div class="jogo-topo">
-        <svg class="objeto" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#1C1A17" stroke-width="3"><rect x="4" y="12" width="26" height="30" rx="4" fill="#2C62C9"/><rect x="34" y="22" width="26" height="30" rx="4" fill="#E2512F"/></g><text x="17" y="34" font-family="Anybody,Arial Black,sans-serif" font-weight="800" font-size="18" fill="#FBF6EA" text-anchor="middle">A</text><text x="47" y="44" font-family="Anybody,Arial Black,sans-serif" font-weight="800" font-size="18" fill="#FBF6EA" text-anchor="middle">Z</text></svg>
-        <h3 class="nome">Duelo de Palavras</h3>
+  <ul class="jogos">
+    <li class="card c-duelo">
+      <div class="faixa">
+        <span class="p p-duelo peca" aria-hidden="true">Aa</span>
+        <h3>Duelo de Palavras</h3>
+        <span class="num" aria-hidden="true">01</span>
       </div>
-      <p class="descricao">Jogo de palavras com pistas, para disputar quem acerta primeiro.</p>
-      <p class="tags"><span>Palavras</span></p>
-      <!-- Endereço do Duelo ainda não confirmado: quando confirmar, trocar este bloco por
-           <a class="btn btn-principal jogar" href="URL">Jogar Duelo de Palavras</a> -->
-      <p class="em-confirmacao" role="note">Link de publicação em confirmação.</p>
+      <div class="corpo">
+        <p>Encontre palavras que seguem as pistas, some pontos e desafie outras pessoas.</p>
+        <div class="pe">
+          <ul class="tags" aria-label="Categorias"><li>palavras</li></ul>
+          <!-- Endereço do Duelo ainda não confirmado. Ao confirmar, trocar pelo link:
+               <a class="jogar" href="URL" aria-label="Jogar Duelo de Palavras">Jogar <span aria-hidden="true">→</span></a> -->
+          <span class="jogar jogar-off">Em breve</span>
+        </div>
+      </div>
     </li>
 
-    <li class="jogo jogo-qop">
-      <span class="numero" aria-hidden="true">Nº 2</span>
-      <div class="jogo-topo">
-        <svg class="objeto" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#1C1A17" stroke-width="3" stroke-linejoin="round"><path d="M6 20 L24 6 H56 V40 H24 Z" fill="#F6C419"/><circle cx="20" cy="22" r="4" fill="#FBF6EA"/></g><text x="40" y="29" font-family="Courier Prime,Courier New,monospace" font-weight="700" font-size="13" fill="#1C1A17" text-anchor="middle">R$?</text><path d="M14 50 H52 M14 57 H40" stroke="#4F7B3C" stroke-width="3" stroke-linecap="round"/></svg>
-        <h3 class="nome">Qual o Preço?</h3>
+    <li class="card c-qop">
+      <div class="faixa">
+        <span class="p p-qop peca" aria-hidden="true">R$</span>
+        <h3>Qual o Preço?</h3>
+        <span class="num" aria-hidden="true">02</span>
       </div>
-      <p class="descricao">Adivinhe quanto custavam coisas do dia a dia no Brasil, de 1990 a 2026, e veja quanto pesavam no bolso.</p>
-      <p class="tags"><span>Preços</span><span>História</span></p>
-      <a class="btn btn-principal jogar" href="https://qualopreco.netlify.app/">Jogar Qual o Preço?</a>
+      <div class="corpo">
+        <p>Descubra quanto custavam produtos em outras épocas e o que pesavam no bolso.</p>
+        <div class="pe">
+          <ul class="tags" aria-label="Categorias"><li>preços</li><li>história</li></ul>
+          <a class="jogar" href="https://qualopreco.netlify.app/" aria-label="Jogar Qual o Preço?">Jogar <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </li>
 
-    <li class="jogo jogo-confia">
-      <span class="numero" aria-hidden="true">Nº 3</span>
-      <div class="jogo-topo">
-        <svg class="objeto" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#1C1A17" stroke-width="3"><circle cx="24" cy="36" r="18" fill="#B7A1E6"/><circle cx="24" cy="36" r="11" fill="none" stroke-dasharray="5 4"/><circle cx="42" cy="26" r="18" fill="#E2512F"/><circle cx="42" cy="26" r="11" fill="none" stroke-dasharray="5 4"/></g><text x="42" y="32" font-family="Bungee,Arial Black,sans-serif" font-size="16" fill="#FBF6EA" text-anchor="middle" stroke="#1C1A17" stroke-width="1">?</text></svg>
-        <h3 class="nome">Confia?</h3>
+    <li class="card c-confia">
+      <div class="faixa">
+        <span class="p p-confia peca" aria-hidden="true">?</span>
+        <h3>Confia?</h3>
+        <span class="num" aria-hidden="true">03</span>
       </div>
-      <p class="descricao">Veja as respostas, aposte e só então descubra a pergunta. Você confia no que sabe?</p>
-      <p class="tags"><span>Quiz</span><span>Pontos fictícios</span></p>
-      <a class="btn btn-principal jogar" href="https://confia-matutar.netlify.app/">Jogar Confia?</a>
+      <div class="corpo">
+        <p>Aposte antes de descobrir a pergunta. Você confia no que sabe?</p>
+        <div class="pe">
+          <ul class="tags" aria-label="Categorias"><li>quiz</li><li>pontos</li></ul>
+          <a class="jogar" href="https://confia-matutar.netlify.app/" aria-label="Jogar Confia?">Jogar <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </li>
-  </ol>
+  </ul>
 
-  <p class="no-forno">Tem mais jogo no forno.</p>
+  <section class="forno" aria-labelledby="forno">
+    <span class="p p-forno" aria-hidden="true"></span>
+    <div>
+      <h2 id="forno" class="mono">No forno</h2>
+      <p>Tem mais jogo sendo matutado por aqui. Em breve, novidades!</p>
+    </div>
+  </section>
+
+  <div class="convite">
+    <p>Matutar junto é melhor.</p>
+    <button class="btn-claro" type="button" id="compartilhar">Convidar alguém</button>
+    <p class="status" id="status" role="status"></p>
+  </div>
 </main>
 
-<footer class="rodape">
-  <button class="btn" type="button" id="compartilhar">Chamar alguém para jogar</button>
-  <p class="status" id="statusCompartilhar" role="status"></p>
-  <p><span class="rodape-marca">MATUTAR GAMES</span> · Ideias que dão jogo.</p>
-</footer>
-<script type="module" src="js/home.js?v=1"></script>
+<footer class="rodape mono">matutar games · ideias que dão jogo.</footer>
+<script type="module" src="js/home.js?v=2"></script>
 </body>
 </html>

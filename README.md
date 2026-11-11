@@ -11,7 +11,7 @@ Cada jogo tem repositório e publicação próprios. A home só aponta para eles
 
 | Nº | Jogo | Repositório | Endereço | Situação |
 |---|---|---|---|---|
-| 1 | Duelo de Palavras | a confirmar | a confirmar | card sem link, com "Link de publicação em confirmação" |
+| 1 | Duelo de Palavras | a confirmar | a confirmar | card com "Em breve" no lugar do botão |
 | 2 | Qual o Preço? | `leticiammdesigner/qual-o-preco` | https://qualopreco.netlify.app | no ar com a versão da `main` |
 | 3 | Confia? | `leticiammdesigner/confia` | https://confia-matutar.netlify.app | v1.0 da Partida Rápida |
 
@@ -19,7 +19,7 @@ Para ligar um jogo: em `index.html`, trocar o bloco `.em-confirmacao` do card po
 `<a class="btn btn-principal jogar" href="ENDEREÇO">Jogar NOME</a>`.
 
 ## Identidade
-- Base compartilhada: `css/matutar-base.css` (mesma cópia usada no Confia?): papel creme, tinta preta, traço de 3px, grão, botões.
+- Base compartilhada: Fontes: Bricolage Grotesque (títulos), Work Sans (texto), Roboto Mono (rótulos), locais em `assets/fontes/` (licenças junto).
 - Home: `css/home.css`. Cada card usa a cor-dupla e a fonte de voz do jogo, conforme a direção de arte aprovada: Duelo azul × coral em Anybody; Qual o Preço? sol × musgo em Bowlby One; Confia? lilás × coral em Bungee.
 - Fontes locais em `assets/fontes/` (Fontsource, licença SIL OFL 1.1).
 
