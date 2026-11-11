@@ -40,7 +40,7 @@ Regra de cor: as cores pastel são **fundo**. Texto sobre elas é sempre `--mt-t
   </div>
 </nav>
 ```
-48px de altura. Respeita a área segura de cima e dos lados.
+58px de altura (toque de 44px). Abaixo de 360px as peças somem e fica só a seta e o texto. Respeita a área segura de cima e dos lados.
 
 ## Aviso de saída
 O jogo define `window.matutarSaida = () => 'texto' | null`. Com texto, o link pergunta "Sair da partida?" antes de sair. Use só quando o progresso se perderia de verdade.

@@ -74,3 +74,6 @@
 
 .mt-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){.mt-btn:active{transform:none}}
+/* celulares estreitos: as peças saem do link, o texto "Todos os jogos" fica */
+@media (max-width:359px){.mt-voltar .mt-pecas{display:none}.mt-voltar{gap:6px;padding-right:8px}.mt-acoes{gap:4px}}
+.mt-barra-dentro>*{min-width:0}

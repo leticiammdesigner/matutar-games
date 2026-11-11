@@ -16,3 +16,6 @@
   --grao:none;
 }
 body{font-family:var(--mt-texto)}
+/* ação principal no padrão da casa: grafite, texto claro, Work Sans */
+.btn-principal{background:var(--mt-tinta);color:var(--mt-superficie);font-family:var(--mt-texto);font-weight:600;letter-spacing:0}
+.btn-principal:hover{background:#2E2A44}
