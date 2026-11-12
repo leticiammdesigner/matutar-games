@@ -1,7 +1,8 @@
 // Matutar Games · home: só o botão de convidar.
 const botao = document.getElementById('compartilhar');
 const status = document.getElementById('status');
-const endereco = /^https?:$/.test(location.protocol) ? location.origin + '/' : '';
+// Endereço fixo da home: prévias e testes locais não viram link compartilhado.
+const endereco = 'https://matutar-games.netlify.app/';
 const texto = 'Matutar Games · Ideias que dão jogo.\nTrês jogos para pensar, arriscar e se surpreender.';
 
 botao.addEventListener('click', async () => {
