@@ -72,6 +72,16 @@
     </div>
   </section>
 
+  <section aria-labelledby="t-excluir">
+    <h2 id="t-excluir">Excluir conta</h2>
+    <p>Apaga a conta Google desta sessão no projeto de teste, com os resultados. Para confirmar, digite EXCLUIR.</p>
+    <div class="linha">
+      <label for="confirma" class="mt-sr">Digite EXCLUIR para confirmar</label>
+      <input id="confirma" autocomplete="off" autocapitalize="characters" placeholder="EXCLUIR" style="min-height:44px;border:var(--mt-traco);border-radius:var(--mt-raio-p);padding:0 10px;font:16px var(--mt-texto);background:var(--mt-fundo);color:var(--mt-tinta);width:9em">
+      <button class="mt-btn mt-btn-claro" id="b-excluir" type="button">Excluir conta</button>
+    </div>
+  </section>
+
   <section aria-labelledby="t-log">
     <h2 id="t-log">O que aconteceu</h2>
     <ol class="log" id="log"></ol>
@@ -238,6 +248,16 @@
     log('teste: sessão sem conta tentando resgatar');
     try { var c = await rpc('poc_criar_transferencia'); sessionStorage.setItem(CODIGO, c.codigo); await resgatar(c.codigo, false); }
     catch (e) { retorno(MSG[e.codigo] || e.message, 'erro'); }
+  };
+
+  $('b-excluir').onclick = async function () {
+    if (!sessao) { retorno('Sem sessão para excluir.', 'erro'); return; }
+    if ($('confirma').value.trim() !== 'EXCLUIR') { retorno('Digite EXCLUIR para confirmar.', 'erro'); return; }
+    log('excluir conta: pedindo ao servidor');
+    var r = await sb.functions.invoke('excluir-conta', { body: { confirmacao: 'EXCLUIR' } });
+    if (r.error) { retorno('Não deu para excluir: ' + r.error.message, 'erro'); log('excluir falhou: ' + r.error.message); return; }
+    await sb.auth.signOut(); sessionStorage.removeItem(CODIGO); $('confirma').value = '';
+    retorno('Conta excluída: login, apelido e resultados apagados.', 'ok'); log('conta excluída'); await atualizar();
   };
 
   $('data').value = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(new Date());
