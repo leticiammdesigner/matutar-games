@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Privacidade · Matutar Games</title>
+<meta name="description" content="O que a Matutar Games guarda, onde guarda, o que fica público e como apagar.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FBF6EC">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../matutar-ui/matutar-ui.css?v=1.0.0">
+<style>
+  [hidden]{display:none!important}
+  body{margin:0;background:var(--mt-fundo);color:var(--mt-tinta);font:17px/1.55 var(--mt-texto)}
+  main{max-width:640px;margin:0 auto;padding:24px var(--mt-gutter-d) 56px var(--mt-gutter-e)}
+  h1{font:800 34px/1.05 var(--mt-titulo);margin:8px 0 12px;text-wrap:balance}
+  h2{font:800 22px/1.15 var(--mt-titulo);margin:36px 0 10px}
+  p,ul{margin:0 0 12px}
+  ul{padding-left:22px}
+  li{margin-bottom:6px}
+  .data{font:500 13px var(--mt-mono);color:var(--mt-tinta-2);margin-bottom:20px}
+  .resumo{border:var(--mt-traco);border-radius:var(--mt-raio);background:var(--mt-superficie);box-shadow:var(--mt-sombra-p);padding:16px}
+  .resumo p:last-child{margin:0}
+  .tres{display:grid;gap:12px;margin:12px 0}
+  .tres div{border:var(--mt-traco);border-radius:var(--mt-raio-p);padding:12px 14px;background:var(--mt-superficie)}
+  .tres b{display:block;font:800 17px var(--mt-titulo);margin-bottom:4px}
+  .c1{background:var(--mt-duelo-claro)!important}.c2{background:var(--mt-preco-claro)!important}.c3{background:var(--mt-confia-claro)!important}
+  .pendente{background:var(--mt-atencao-fundo);color:var(--mt-atencao);font-weight:600;padding:2px 6px;border-radius:6px}
+  code{font:500 14px var(--mt-mono);background:var(--mt-superficie-2);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+  a{color:var(--mt-foco)}
+</style>
+</head>
+<body>
+<nav class="mt-barra" aria-label="Matutar Games">
+  <div class="mt-barra-dentro">
+    <a class="mt-voltar" href="../"><span class="mt-seta" aria-hidden="true">←</span><span class="mt-pecas" aria-hidden="true"><i></i><i></i><i></i></span>Todos os jogos</a>
+  </div>
+</nav>
+<main>
+  <h1>Privacidade</h1>
+  <p class="data">Atualizada em 13/11/2026</p>
+
+  <div class="resumo">
+    <p>Dá para jogar tudo sem conta. Sem conta, o que você joga fica só no seu aparelho.</p>
+    <p>Se você entrar com o Google, a gente guarda seu apelido e os resultados dos desafios diários. Seu nome, seu e-mail e sua foto do Google não aparecem em lugar nenhum dos jogos.</p>
+    <p>Seu apelido só fica público se você escolher participar do ranking. Você pode sair do ranking ou apagar a conta quando quiser.</p>
+  </div>
+
+  <h2>Três lugares diferentes</h2>
+  <div class="tres">
+    <div class="c1"><b>Só no seu aparelho</b>Partidas livres, recordes, preferências e partida em andamento. Ficam no armazenamento do navegador e não são enviados para a Matutar Games, nem quando você tem conta.</div>
+    <div class="c2"><b>Na sua conta</b>Resultados dos desafios diários, guardados no nosso servidor para você ver em qualquer aparelho. Só você vê esse histórico.</div>
+    <div class="c3"><b>No ranking público</b>Só se você aceitar: apelido, posição e resultado de cada desafio diário. Qualquer pessoa pode ver.</div>
+  </div>
+
+  <h2>Sem conta</h2>
+  <p>Cada jogo guarda no seu navegador o que precisa para funcionar, como o recorde do Qual o Preço?, o histórico de partidas do Confia? e o nível escolhido no Duelo de Palavras. Nada disso sai do aparelho.</p>
+  <p>Quando você joga um desafio diário, o jogo cria uma sessão sem nome no nosso servidor para registrar aquela única tentativa. Ela não tem e-mail, nome nem apelido.</p>
+  <p>Para apagar os dados do aparelho, limpe os dados do site nas configurações do navegador.</p>
+
+  <h2>Com conta Google</h2>
+  <ul>
+    <li>Ao entrar, o Google envia para o nosso serviço de login seu nome, seu e-mail e sua foto. Eles ficam guardados só ali, para o login funcionar. A Matutar Games não copia, não mostra e não usa esses dados.</li>
+    <li>A gente guarda: o apelido que você escolher, se você participa do ranking (e a data em que aceitou) e os resultados dos desafios diários.</li>
+    <li>Se você jogou um desafio sem conta e entrou depois, aquele resultado vai para a sua conta. Se a conta já tinha resultado do mesmo desafio, vale o da conta.</li>
+    <li>Partidas livres continuam só no aparelho. Elas não são sincronizadas com a conta.</li>
+  </ul>
+
+  <h2>Ranking público</h2>
+  <p>Participar do ranking começa desligado. Antes de ligar, você vê exatamente como seu nome vai aparecer. O ranking mostra apelido, posição e resultado de cada desafio diário. Nunca mostra nome, e-mail, foto, palpite ou palavras jogadas.</p>
+  <p>Ao sair do ranking, seu apelido some na hora de todos os placares, inclusive dos dias anteriores. Seu histórico privado continua.</p>
+
+  <h2>Apagar a conta</h2>
+  <p>Em <b>Meu perfil → Excluir conta</b>, você confirma digitando EXCLUIR. A conta de login, o apelido, os resultados e a participação no ranking são apagados de uma vez. Não dá para desfazer.</p>
+
+  <h2>Quem cuida dos dados</h2>
+  <ul>
+    <li><b>Netlify:</b> hospeda os sites. Como qualquer hospedagem, registra dados técnicos de acesso, como endereço IP e navegador.</li>
+    <li><b>Supabase:</b> login e banco de dados, com servidores em São Paulo.</li>
+    <li><b>Google:</b> só o login, quando você escolhe "Entrar com o Google".</li>
+  </ul>
+  <p>A Matutar Games não tem anúncios, não usa ferramentas de rastreamento ou de análise de público e não vende nem compartilha dados com mais ninguém.</p>
+
+  <h2>Contato</h2>
+  <p>Dúvidas, pedidos de acesso ou correção dos seus dados: <span class="pendente">[e-mail de contato a definir]</span>.</p>
+  <p>Responsável: <span class="pendente">[nome do responsável a definir]</span>.</p>
+</main>
+</body>
+</html>
