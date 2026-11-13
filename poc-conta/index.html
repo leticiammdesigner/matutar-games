@@ -128,6 +128,7 @@
       anonimo = q.anonimo;
       $('estado').textContent = (anonimo ? 'Sessão sem conta (anônima)' : 'Conta Google') + ' · usuário ' + String(q.id).slice(0, 8);
     }
+    if (!sessao || !anonimo) $('caixa-existente').hidden = true;  // a pergunta só faz sentido para uma sessão sem conta
     $('b-anonimo').disabled = !!sessao;
     $('b-sair').disabled = !sessao;
     $('b-jogar').disabled = !sessao;
@@ -159,6 +160,7 @@
 
   // ---------- volta do Google
   if (erroVolta) {
+    log('voltou do Google com erro: ' + erroVolta + (erroTexto ? ' · ' + erroTexto : ''));
     history.replaceState(null, '', volta);
     if (/identity_already_exists|already linked|already exists/i.test(erroVolta + ' ' + erroTexto)) {
       $('caixa-existente').hidden = false;
