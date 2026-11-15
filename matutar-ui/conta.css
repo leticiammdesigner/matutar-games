@@ -1,0 +1,51 @@
+/* Matutar UI · conta (1.1.0-beta). Botão do cabeçalho e painel de conta, apelido, perfil e exclusão. */
+.mt-conta{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:50%;
+  border:var(--mt-traco);background:var(--mt-superficie);color:var(--mt-tinta);cursor:pointer;font:800 18px/1 var(--mt-titulo)}
+.mt-conta.conectada{background:var(--mt-novidade)}
+.mt-conta:focus-visible,.mt-conta-painel :focus-visible{outline:3px solid var(--mt-foco);outline-offset:3px}
+/* o painel rola por dentro quando o conteúdo (ou o teclado do celular) não deixa caber */
+.mt-conta-painel{width:min(440px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);padding:0;overflow:auto;overscroll-behavior:contain;box-sizing:border-box}
+.mt-conta-painel .mt-conta-corpo{padding:var(--mt-e5);display:grid;gap:var(--mt-e3);min-width:0}
+/* título e X na mesma linha: o X fica sempre visível no topo, mesmo rolando o painel */
+.mt-conta-topo{display:flex;align-items:flex-start;gap:8px;position:sticky;top:calc(var(--mt-e5) * -1);z-index:1;
+  margin:calc(var(--mt-e5) * -1) calc(var(--mt-e5) * -1) 0;padding:var(--mt-e5) var(--mt-e5) 10px;background:var(--mt-superficie)}
+.mt-conta-painel h2{margin:0;flex:1;min-width:0;font:800 24px/1.1 var(--mt-titulo);text-wrap:balance}
+.mt-conta-fechar{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -8px 0 0;
+  padding:0;border:0;border-radius:50%;background:var(--mt-superficie-2);color:var(--mt-tinta);cursor:pointer}
+.mt-conta-fechar:hover{background:var(--mt-linha)}
+.mt-conta-painel p{margin:0;font-size:16px;line-height:1.45;color:var(--mt-tinta)}
+.mt-conta-painel .mt-conta-nota{font-size:14px;line-height:1.4;color:var(--mt-tinta-2)}
+.mt-conta-status{min-height:0;font-weight:600}
+.mt-conta-status:empty,.mt-conta-erro:empty{display:none}
+.mt-conta-status.ok{color:var(--mt-sucesso);background:var(--mt-sucesso-fundo);padding:8px 10px;border-radius:var(--mt-raio-p)}
+.mt-conta-status.erro{color:var(--mt-erro);background:var(--mt-erro-fundo);padding:8px 10px;border-radius:var(--mt-raio-p)}
+.mt-conta-painel .mt-btn{width:100%;min-height:48px}
+.mt-conta-painel .mt-conta-menor{min-height:44px;font-size:15px}
+/* sem o "G" do Google por enquanto: o botão oficial entra antes da produção, com o arquivo do próprio Google */
+.mt-conta-google{background:#fff;color:#1f1f1f;border-color:var(--mt-tinta)}
+.mt-conta-link{font-size:14px;color:var(--mt-foco);min-height:44px;display:inline-flex;align-items:center;justify-self:start}
+.mt-conta-texto{justify-self:center;min-height:44px;padding:0 16px;border:0;background:none;color:var(--mt-tinta-2);font:600 15px var(--mt-texto);text-decoration:underline;cursor:pointer}
+.mt-conta-perigo{color:var(--mt-erro)}
+/* sair e excluir: discretos, lado a lado, longe dos botões de ação */
+.mt-conta-rodape{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-top:4px;padding-top:12px;border-top:1px solid var(--mt-linha)}
+.mt-conta-rodape .mt-conta-texto{justify-self:auto;padding:0 8px}
+/* formulários: apelido e confirmação de exclusão */
+.mt-conta-form{display:grid;gap:var(--mt-e2);padding:0!important}
+.mt-conta-form label{font:700 14px var(--mt-texto);margin:0}
+.mt-conta-form input{box-sizing:border-box;width:100%;min-height:48px;padding:10px 12px;border:var(--mt-traco);border-radius:var(--mt-raio-p);background:var(--mt-superficie);color:var(--mt-tinta);font:600 18px var(--mt-texto)}
+.mt-conta-form input[aria-invalid=true]{border-color:var(--mt-erro)}
+.mt-conta-painel .mt-conta-erro{color:var(--mt-erro);font-size:14px;font-weight:600}
+.mt-conta-apagar{background:var(--mt-erro);color:#fff}
+/* Meu perfil: blocos como cartões de etiqueta */
+.mt-conta-bloco{display:grid;gap:6px;padding:12px 14px;border:var(--mt-traco-fino);border-radius:var(--mt-raio-p);background:var(--mt-superficie);min-width:0}
+.mt-conta-rotulo{font:700 12px/1.2 var(--mt-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mt-tinta-2)}
+.mt-conta-valor{font:800 20px/1.15 var(--mt-titulo);overflow-wrap:anywhere}
+.mt-conta-historico ul{list-style:none;margin:6px 0 0;padding:0;display:grid}
+.mt-conta-historico li{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-top:1px dashed var(--mt-linha);font-size:15px}
+.mt-conta-dia{flex:none;font:700 13px var(--mt-mono);color:var(--mt-tinta-2)}
+.mt-conta-painel .mt-conta-resumo{font-weight:700;font-size:15px}
+.mt-conta-painel .mt-conta-vazio{font-size:15px;color:var(--mt-tinta-2);padding:10px 12px;border:1.5px dashed var(--mt-linha);border-radius:var(--mt-raio-p)}
+/* prévia de como o apelido aparece no ranking */
+.mt-conta-previa{display:grid;gap:2px;padding:12px 14px;border:var(--mt-traco);border-radius:var(--mt-raio-p);background:var(--mt-novidade-claro)}
+.mt-conta-previa strong{font:800 20px/1.15 var(--mt-titulo);overflow-wrap:anywhere}
+.mt-conta-previa span{font-size:13px;color:var(--mt-tinta-2)}
