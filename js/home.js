@@ -3,7 +3,7 @@ const botao = document.getElementById('compartilhar');
 const status = document.getElementById('status');
 // Endereço fixo da home: prévias e testes locais não viram link compartilhado.
 const endereco = 'https://matutar-games.netlify.app/';
-const texto = 'Matutar Games · Ideias que dão jogo.\nTrês jogos para pensar, arriscar e se surpreender.';
+const texto = 'Matutar Games · Ideias que dão jogo.\nJogos para despertar a curiosidade, testar suas ideias e se surpreender.';
 
 botao.addEventListener('click', async () => {
   status.textContent = '';
