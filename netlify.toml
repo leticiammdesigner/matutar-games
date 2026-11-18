@@ -2,6 +2,38 @@
 [build]
   publish = "."
   command = ""
+# Cada jogo tem repositório e deploy próprios, e aparece aqui como um caminho do domínio.
+# Uma origem só para os três: é o que permite um login valer para todos, sem compartilhar
+# token entre domínios. O /jogo sem barra redireciona para /jogo/, senão os caminhos
+# relativos dentro do jogo (css, fontes, telas) saem do lugar errado.
+[[redirects]]
+  from = "/duelo"
+  to = "/duelo/"
+  status = 301
+[[redirects]]
+  from = "/duelo/*"
+  to = "https://duelo-matutar.netlify.app/:splat"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/preco"
+  to = "/preco/"
+  status = 301
+[[redirects]]
+  from = "/preco/*"
+  to = "https://qualopreco.netlify.app/:splat"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/confia"
+  to = "/confia/"
+  status = 301
+[[redirects]]
+  from = "/confia/*"
+  to = "https://confia-matutar.netlify.app/:splat"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
