@@ -4,30 +4,30 @@
   command = ""
 # Cada jogo tem repositório e deploy próprios, e aparece aqui como um caminho do domínio.
 # Uma origem só para os três: é o que permite um login valer para todos, sem compartilhar
-# token entre domínios. O /jogo sem barra redireciona para /jogo/, senão os caminhos
-# relativos dentro do jogo (css, fontes, telas) saem do lugar errado.
-[[redirects]]
-  from = "/duelo"
-  to = "/duelo/"
-  status = 301
+# token entre domínios.
+#
+# O jogo precisa ser servido com a barra no fim (/preco/), senão os caminhos relativos
+# dentro dele (css, fontes, telas) saem do lugar errado. Quem põe essa barra é o próprio
+# Netlify: existe uma pasta de verdade para cada jogo (duelo/, preco/, confia/), então
+# /preco vira 301 para /preco/, que é como ele trata qualquer diretório.
+#
+# Não escreva aqui um redirecionamento manual de /preco para /preco/. Quando a pasta não
+# existe, o Netlify normaliza no sentido contrário e tira a barra, e os dois ficam se
+# empurrando: ERR_TOO_MANY_REDIRECTS (foi o que aconteceu em 18/11/2026).
+#
+# O index.html de cada pasta nunca é servido enquanto o proxy estiver de pé, porque
+# force = true vence arquivo estático. Ele fica ali como rede de segurança: se um dia o
+# proxy sair, o caminho ainda leva a jogadora ao jogo em vez de dar 404.
 [[redirects]]
   from = "/duelo/*"
   to = "https://duelo-matutar.netlify.app/:splat"
   status = 200
   force = true
 [[redirects]]
-  from = "/preco"
-  to = "/preco/"
-  status = 301
-[[redirects]]
   from = "/preco/*"
   to = "https://qualopreco.netlify.app/:splat"
   status = 200
   force = true
-[[redirects]]
-  from = "/confia"
-  to = "/confia/"
-  status = 301
 [[redirects]]
   from = "/confia/*"
   to = "https://confia-matutar.netlify.app/:splat"

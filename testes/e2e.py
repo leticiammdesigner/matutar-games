@@ -2,12 +2,25 @@
 Uso:  python3 -m http.server 8790  (na raiz do repositório)
       python3 testes/e2e.py http://localhost:8790
 """
-import sys
+import os, re, sys
 from playwright.sync_api import sync_playwright
+RAIZ=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE=sys.argv[1].rstrip('/') if len(sys.argv)>1 else 'http://localhost:8790'
 JOGOS=['/duelo/','/preco/','/confia/']
 res=[]
 def ok(n,c,x=''): res.append(bool(c)); print(('OK  ' if c else 'FALHA ')+n+(' · '+str(x) if not c and x!='' else ''))
+
+# Configuração do proxy: o laço de redirecionamento de 18/11/2026 nasceu de um 301 manual
+# de /preco para /preco/ sem pasta real. O Netlify tirava a barra, a regra devolvia.
+toml=open(os.path.join(RAIZ,'netlify.toml'),encoding='utf-8').read()
+manuais=re.findall(r'from\s*=\s*"(/(?:duelo|preco|confia))"',toml)
+ok('sem redirecionamento manual de barra final no netlify.toml', not manuais, manuais)
+for slug in ('duelo','preco','confia'):
+    ok(f'pasta real {slug}/ existe (é ela que faz o Netlify pôr a barra)',
+       os.path.isfile(os.path.join(RAIZ,slug,'index.html')))
+    ok(f'proxy de /{slug}/* com force', bool(re.search(
+        r'from\s*=\s*"/'+slug+r'/\*"\s*\n\s*to\s*=\s*"https://[^"]+"\s*\n\s*status\s*=\s*200\s*\n\s*force\s*=\s*true',toml)))
+
 with sync_playwright() as p:
     b=p.chromium.launch()
     for w in (320,360,390,1280):
