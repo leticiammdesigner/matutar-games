@@ -10,14 +10,14 @@ JOGOS=['/duelo/','/preco/','/confia/']
 res=[]
 def ok(n,c,x=''): res.append(bool(c)); print(('OK  ' if c else 'FALHA ')+n+(' · '+str(x) if not c and x!='' else ''))
 
-# Configuração do proxy: o laço de redirecionamento de 18/11/2026 nasceu de um 301 manual
-# de /preco para /preco/ sem pasta real. O Netlify tirava a barra, a regra devolvia.
+# Configuração do proxy. Para o motor do Netlify, /preco e /preco/ são o mesmo caminho:
+# uma regra "from = /preco" casa os dois e redireciona /preco/ para si mesmo, o que
+# derrubou o domínio em 18/11/2026 com ERR_TOO_MANY_REDIRECTS. A barra que falta é
+# resolvida dentro de cada jogo, não aqui.
 toml=open(os.path.join(RAIZ,'netlify.toml'),encoding='utf-8').read()
 manuais=re.findall(r'from\s*=\s*"(/(?:duelo|preco|confia))"',toml)
-ok('sem redirecionamento manual de barra final no netlify.toml', not manuais, manuais)
+ok('netlify.toml sem regra de barra final (ela vira laço)', not manuais, manuais)
 for slug in ('duelo','preco','confia'):
-    ok(f'pasta real {slug}/ existe (é ela que faz o Netlify pôr a barra)',
-       os.path.isfile(os.path.join(RAIZ,slug,'index.html')))
     ok(f'proxy de /{slug}/* com force', bool(re.search(
         r'from\s*=\s*"/'+slug+r'/\*"\s*\n\s*to\s*=\s*"https://[^"]+"\s*\n\s*status\s*=\s*200\s*\n\s*force\s*=\s*true',toml)))
 

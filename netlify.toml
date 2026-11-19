@@ -6,18 +6,15 @@
 # Uma origem só para os três: é o que permite um login valer para todos, sem compartilhar
 # token entre domínios.
 #
-# O jogo precisa ser servido com a barra no fim (/preco/), senão os caminhos relativos
-# dentro dele (css, fontes, telas) saem do lugar errado. Quem põe essa barra é o próprio
-# Netlify: existe uma pasta de verdade para cada jogo (duelo/, preco/, confia/), então
-# /preco vira 301 para /preco/, que é como ele trata qualquer diretório.
+# NÃO adicione um redirecionamento de /preco para /preco/ aqui. Para o motor do Netlify,
+# /preco e /preco/ são o mesmo caminho: uma regra "from = /preco" casa os dois, então ela
+# redireciona /preco/ para si mesmo e o navegador desiste com ERR_TOO_MANY_REDIRECTS.
+# Foi o que derrubou o domínio em 18/11/2026. Testado contra o netlify-redirector, que é
+# o motor de verdade: nenhuma ordem de regras separa os dois caminhos.
 #
-# Não escreva aqui um redirecionamento manual de /preco para /preco/. Quando a pasta não
-# existe, o Netlify normaliza no sentido contrário e tira a barra, e os dois ficam se
-# empurrando: ERR_TOO_MANY_REDIRECTS (foi o que aconteceu em 18/11/2026).
-#
-# O index.html de cada pasta nunca é servido enquanto o proxy estiver de pé, porque
-# force = true vence arquivo estático. Ele fica ali como rede de segurança: se um dia o
-# proxy sair, o caminho ainda leva a jogadora ao jogo em vez de dar 404.
+# Por isso a barra que falta é resolvida dentro de cada jogo, por uma linha no <head> do
+# index.html que troca /preco por /preco/ antes de o CSS carregar.
+
 [[redirects]]
   from = "/duelo/*"
   to = "https://duelo-matutar.netlify.app/:splat"
