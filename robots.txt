@@ -1,0 +1,8 @@
+# Matutar Games
+# Os três jogos são servidos por proxy em /duelo/, /preco/ e /confia/, a partir
+# dos repositórios de cada um. Para quem rastreia, são páginas deste domínio.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://matutargames.com.br/sitemap.xml
