@@ -71,5 +71,7 @@ main{flex:1;display:flex;flex-direction:column;gap:16px;padding-bottom:28px}
 .status:empty{display:none}
 
 .rodape{padding-block:6px max(28px,env(safe-area-inset-bottom,0px));font-size:14px;color:var(--grafite-2);text-align:center}
+.rodape p{margin:0}
+.rodape-privacidade{margin-top:6px!important;font-size:12px;opacity:.75}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
